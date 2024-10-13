@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Auth</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="home-buttons">
+        <h1>Select Auth</h1>
+        <form action="/auth1" method="get">
+            <button type="submit">LookUP</button>
+        </form>
+        <form action="/auth2" method="get">
+            <button type="submit">Stripe Charge</button>
+        </form>
+    </div>
+</body>
+</html>

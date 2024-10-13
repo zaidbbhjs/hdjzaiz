@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ auth_type }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/validate.js') }}"></script>
+    <style>
+        /* إضافة تنسيقات CSS للحقوق */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* ملء ارتفاع الصفحة */
+        }
+
+        footer {
+            background-color: #f8f9fa; /* لون خلفية فاتح */
+            text-align: center; /* محاذاة النص إلى الوسط */
+            padding: 10px 0; /* مسافة داخلية */
+            border-top: 1px solid #e7e7e7; /* خط أعلى */
+            margin-top: auto; /* دفع الفوتر إلى الأسفل */
+        }
+
+        footer p {
+            margin: 0; /* إزالة المسافة الافتراضية */
+            color: #6c757d; /* لون نص رمادي */
+            font-size: 14px; /* حجم خط صغير */
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post" onsubmit="return validateForm()">
+        <h1>{{ auth_type }}</h1>
+
+        <ul id="error-list"></ul>
+
+        <label for="name">Cardholder Name:</label>
+        <input type="text" id="name" name="name" value="{{ name }}" required>
+
+        <label for="card_number">Card Number:</label>
+        <input type="text" id="card_number" name="card_number" value="{{ card_number }}" required>
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" value="{{ cvv }}" required>
+
+        <label for="exp_month">Expiration Month (01-12):</label>
+        <input type="text" id="exp_month" name="exp_month" value="{{ exp_month }}" required pattern="0[1-9]|1[0-2]" title="Enter a valid month (01-12)">
+
+        <label for="exp_year">Expiration Year (last two digits):</label>
+        <input type="text" id="exp_year" name="exp_year" value="{{ exp_year }}" required pattern="\d{2}" title="Enter the last two digits of the year (e.g., 29 for 2029)">
+
+        <button type="submit">Submit</button>
+    </form>
+    <footer>
+        <p>حقوق الملكية © 2024 @Vip_Marko</p>
+    </footer>
+</body>
+</html>
